@@ -1,0 +1,11 @@
+---
+title: "Google Trends Analysis"
+author: "David Liu"
+date: "March 20, 2018"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
