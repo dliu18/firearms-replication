@@ -9,3 +9,37 @@ output: pdf_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+```{r,message = F, warning = F, echo = F}
+## Load packages we'll use
+library(tidyverse)
+library(reshape2)
+library(foreign)
+library(ggplot2)
+library(gridExtra)
+library(xtable)
+library(pscl)
+library(mvtnorm)
+
+# SET WORKING DIRECTORY
+```
+
+Load the data and store in a data frame. 
+```{r}
+load("../data/raw/Google Trends data for Figure 1.RData")
+google_trends <- data.frame(x[3:nrow(x),])
+colnames(google_trends) <- c("week", "clean", "buy")
+```
+
+Cast vaulues to be numeric from string format 
+```{r}
+google_trends$week <- as.numeric(google_trends$week)
+google_trends$clean <- as.numeric(google_trends$clean)
+google_trends$buy <- as.numeric(google_trends$buy)
+```
+
+Replicate Figure 1 from the paper:
+```{r}
+ggplot(data = google_trends) +
+  geom_line(aes(x = week, y = clean)) +
+  geom_line(aes(x = week, y = buy))
+```
