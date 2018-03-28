@@ -1,4 +1,4 @@
- delimit ;
+#delimit ;
 set more 1;
 set matsize 800;
 capture log close;
@@ -34,7 +34,7 @@ forvalues y = 2009/2015 {;
 };
 
 *Estimate de-seasonalized and de-trended gun sales;
-regress total sandyhookp1-sandyhookp5 monthdv2-monthdv12 yrdv2009-yrdv2015;
+regress total sandyhookp1-sandyhookp5 monthdv2-monthdv12 yrdv2009-yrdv2015 if year <= 2015;
 predict resid, resid;
 
 format total %10.0f;
