@@ -17,4 +17,7 @@ Instrumental variable analysis
 * (3/15) Followed readme.txt instructions to obtain mortality files from [CDC](https://www.cdc.gov/nchs/data_access/vitalstatsonline.htm#Mortality_Multiple). 
 * (3/20) Annotated article and created Replication targets section 
 * (3/20) To understand the format of the Vital Statistics data, I read the [Stata infix documentation](https://www.stata.com/manuals13/dinfixfixedformat.pdf). Will use fread to import fixed-width data in R. 
-* (3/20) Created template code files for each of the key replication sections 
+* (3/20) Created template code files for each of the key replication sections clear
+
+# Notes regarding individual figures 
+To recreate Figure 2, we ran the replication_science.do file and copied the outputs of line 104 into an CSV file for visualization. Excel's Text to Data tool was useful for converting fixed width text output from Stata into CSV data. 
