@@ -23,10 +23,12 @@ library(mvtnorm)
 # SET WORKING DIRECTORY
 ```
 
+## Figure 1
+
 Load the data and store in a data frame. 
 ```{r}
 load("../data/raw/Google Trends data for Figure 1.RData")
-google_trends <- data.frame(x[3:nrow(x),])
+google_trends <- data.frame(x[3:nrow(x),]) # extrude misellaneous header data
 colnames(google_trends) <- c("week", "clean", "buy")
 ```
 
@@ -40,6 +42,53 @@ google_trends$buy <- as.numeric(google_trends$buy)
 Replicate Figure 1 from the paper:
 ```{r}
 ggplot(data = google_trends) +
-  geom_line(aes(x = week, y = clean)) +
-  geom_line(aes(x = week, y = buy))
+  geom_line(aes(x = week, y = clean), color = "black") +
+  geom_line(aes(x = week, y = buy), color = "red") + 
+  xlab("Week") +
+  ylab("Index Value (100 = maximum)")
+ggsave("../writing/figures/fig1_generated.PNG")
+```
+
+## Figure 2
+
+Figure as-is
+```{r}
+nat_gun_sales <- read.csv("../output/figure data/fig2_sales.csv") 
+nat_gun_sales$year_month <- nat_gun_sales$year + (nat_gun_sales$month - 1)/12.0
+nat_gun_sales <- filter(nat_gun_sales, year <= 2015)
+```
+
+```{r}
+ggplot() +
+  geom_line(data = nat_gun_sales, aes(x = year_month, y = resid)) + 
+  ylim(c(-1200000, 1200000))
+```
+
+Remove 2016 data
+```{r}
+nat_gun_sales <- read.csv("../output/figure data/fig2_sales_revised.csv") 
+nat_gun_sales$year_month <- nat_gun_sales$year + (nat_gun_sales$month - 1)/12.0
+nat_gun_sales <- filter(nat_gun_sales, year <= 2015)
+```
+
+```{r}
+ggplot() +
+  geom_line(data = nat_gun_sales, aes(x = year_month, y = resid)) + 
+  ylim(c(-1200000, 1200000)) +
+  ylab("Deviation") + 
+  ggtitle("Deviations from Expected Monthly Firearm Sales") 
+```
+
+Load the death data
+```{r}
+nat_death <- read.csv("../output/figure data/fig2_deaths.csv")
+```
+
+```{r}
+ggplot(data = nat_death) +
+  geom_bar(aes(x = year, weight = resid), width = 0.417) + 
+  ylim(c(-0.024, 0.024)) +
+  ylab("Deviation") + 
+  ggtitle("Deviations from Expected Accidental Firearm Death Rates for Children") 
+# set bar width to 5 months 
 ```
