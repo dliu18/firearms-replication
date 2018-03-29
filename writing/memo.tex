@@ -109,6 +109,22 @@ To replicate, we simply ran the provided Stata code, which outputted a slew of r
 	\label{fig:fig3_generated}
 \end{figure}
 \subsection*{Causal inference analysis}
+Interestingly, the paper's most significant findings were the most straight forward to replicate as many of the quantities were simply regression coefficients. To start, the original quantities are shown in Figure \ref{fig:table_original}. \\ \\
+\begin{figure}[hbt]
+	\centering
+	\includegraphics[width=.9\linewidth]{figures/table_original.png}
+	\caption{The original reported values in Table 1, which establishes a causal relationship between firearm exposure and firearm related accidental deaths.}
+	\label{fig:table_original}
+\end{figure}
+These first panel of the table provides descriptive statistics, such as total population and average number of accidental fire arm deaths. We ran the provided Stata code to yield the values shown in Figure \ref{fig:panel1}. The mean values of \texttt{pop byage} match the population parameters from the table. Then, if we multiply the average value of \texttt{num deaths} by five, to obtain the five-month mortality rate, we also get the average values reported in the paper. \\ \\
+\begin{figure}[hbt]
+	\centering
+	\includegraphics[width=.9\linewidth]{figures/panel1.png}
+	\caption{The summary statistics from Stata concur with those from the paper.}
+	\label{fig:panel1}
+\end{figure}
+To make causal conclusions, the authors first ran an OLS regression with a dummy variable for the Sandy Hook period representing a treatment effect. To assert that exposure produced more accidental deaths, the authors then performed an IV regression with 2 stage lease squares, where the Sandy Hook shooting was the instrument and the amount of exposure was the endogenous variable. \\ \\
+In all six of these regression (two methods each applied to three age groups), we must verify the coefficient on \texttt{sandyhook}. To be concise, we do not copy those regression outputs here, but they are contained in the replication\_science.log log file. The coefficients in the final six regressions do match those reported in the paper. 
 \section*{Extension Proposals} 
 \subsection*{Proposal 1}
 \subsection*{Proposal 2}
@@ -116,6 +132,6 @@ To replicate, we simply ran the provided Stata code, which outputted a slew of r
 \bibliographystyle{IEEEtranS}
 \bibliography{references}
 \section*{Appendix}
-\href{https://github.com/dliu18/firearms-replication}{Project Github}
+\href{https://github.com/dliu18/firearms-replication}{Project Github}\\
 \href{https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/EVLKBN}{Dataverse}
 \end{document}

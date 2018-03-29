@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.9.27)  28 MAR 2018 22:20
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.9.27)  28 MAR 2018 22:59
 entering extended mode
 **memo.tex
 (memo.tex
@@ -500,26 +500,56 @@ Underfull \hbox (badness 10000) in paragraph at lines 97--111
 
  []
 
-[4 <./figures/fig2_original.jpg> <./figures/fig2_pre_revision.png>] (memo.bbl)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 121.
+[4 <./figures/fig2_original.jpg> <./figures/fig2_pre_revision.png>]
+<figures/table_original.png, id=66, 546.54187pt x 422.32782pt>
+File: figures/table_original.png Graphic file (type png)
 
-[5 <./figures/fig3_original.jpg>] [6 <./figures/fig3_generated.png>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 121.
+<use figures/table_original.png>
+Package pdftex.def Info: figures/table_original.png used on input line 115.
+(pdftex.def)             Requested size: 425.08147pt x 328.47351pt.
+
+<figures/panel1.png, id=68, 405.76593pt x 200.24812pt>
+File: figures/panel1.png Graphic file (type png)
+
+<use figures/panel1.png>
+Package pdftex.def Info: figures/panel1.png used on input line 122.
+(pdftex.def)             Requested size: 425.08147pt x 209.78702pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 112--128
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 112--128
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 112--128
+
+ []
+
+[5 <./figures/fig3_original.jpg>] (memo.bbl)
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 137.
+ [6 <./figures/fig3_generated.png>] [7 <./figures/table_original.png> <./figure
+s/panel1.png>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 137.
  (memo.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 121.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 121.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 137.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 137.
 Package rerunfilecheck Info: File `memo.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 
+
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 121.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 137.
  ) 
 Here is how much of TeX's memory you used:
- 6665 strings out of 493698
- 94731 string characters out of 3144412
- 185678 words of memory out of 3000000
- 9873 multiletter control sequences out of 15000+200000
+ 6680 strings out of 493698
+ 95028 string characters out of 3144412
+ 185933 words of memory out of 3000000
+ 9883 multiletter control sequences out of 15000+200000
  23223 words of font info for 60 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
  29i,8n,43p,715b,410s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -527,9 +557,9 @@ Here is how much of TeX's memory you used:
 s/MiKTeX 2.9/fonts/type1/urw/courier/ucrr8a.pfb><C:/Program Files/MiKTeX 2.9/fo
 nts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/tim
 es/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on memo.pdf (6 pages, 516837 bytes).
+Output written on memo.pdf (7 pages, 570896 bytes).
 PDF statistics:
- 110 PDF objects out of 1000 (max. 8388607)
- 36 named destinations out of 1000 (max. 500000)
- 41 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 127 PDF objects out of 1000 (max. 8388607)
+ 39 named destinations out of 1000 (max. 500000)
+ 51 words of extra memory for PDF output out of 10000 (max. 10000000)
 
