@@ -5,40 +5,29 @@ capture log close;
 log using replication_science.log, replace;
 clear;
 
-**********************;
-* Replicate Figure 1 *;
-**********************;
-* The data are in an Excel spreadsheet that is provided in dataverse;
-
-**********************;
-* Replicate Figure 2 *;
-**********************;
-
-*First, create sales figures *;
-******************************;
 use bckcheck-state-public.dta;
+
+sort year stfips;
+merge year stfips using population-state-public.dta;
+tab _merge;
 
 keep if year>=2008;
 
-collapse (sum) total, by(year month);
+*Calculate sales per 100,000;
+gen totalpc = (total/pop)*100000;
 
-gen sandyhookp1 = year == 2012 & month == 12;
-gen sandyhookp2 = year == 2013 & month == 1;
-gen sandyhookp3 = year == 2013 & month == 2;
-gen sandyhookp4 = year == 2013 & month == 3;
-gen sandyhookp5 = year == 2013 & month == 4;
+gen sandyhook = (year == 2012 & month == 12)|(year==2013 & month<=4);
 
 tab month, gen(monthdv);
 forvalues y = 2009/2015 {;
   gen yrdv`y' = year == `y';
 };
 
-*Estimate de-seasonalized and de-trended gun sales;
-regress total sandyhookp1-sandyhookp5 monthdv2-monthdv12 yrdv2009-yrdv2015 if year <= 2015;
-predict resid, resid;
+foreach x in AK AL AR AZ CA CO CT DE FL GA HI IA ID IL IN KS LA MA MD ME MI MN MO MS MT ND NE NH NJ NM NV NY OH OK OR PA RI SC SD TN TX  VA VT WA WI WV WY {;
 
-format total %10.0f;
-*These residuals are the points for the times series in Figure 2.;
-*The points for the Sandy Hook time period are the residuals + the coefficients on sandyhookp1-sandyhookp5.;
-list year month total resid, clean;
+*Estimate de-seasonalized and de-trended gun sales;
+*Multiply coefficients from these regressions by 5 to obtain values reported in Figure 3;
+di "`x'";
+regress totalpc sandyhook monthdv2-monthdv12 yrdv2009-yrdv2015 if stname=="`x'" & year <= 2015;
+};
 clear;

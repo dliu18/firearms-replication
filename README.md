@@ -21,3 +21,9 @@ Instrumental variable analysis
 
 # Notes regarding individual figures 
 To recreate Figure 2, we ran the replication_science.do file and copied the outputs of line 104 into an CSV file for visualization. Excel's Text to Data tool was useful for converting fixed width text output from Stata into CSV data. 
+
+To recreate Figure 3, we manually (by hand) copied the coefficients from each of the state-level regressions into a CSV file. 
+
+## TODO
+* Fix the file paths in the two Stata files 
+
