@@ -2,6 +2,7 @@
 \usepackage{amsfonts}
 \usepackage{fancyhdr}
 \usepackage{comment}
+\usepackage{hyperref}
 \usepackage[a4paper, top=2.5cm, bottom=2.5cm, left=2.2cm, right=2.2cm]%
 {geometry}
 \usepackage{times}
@@ -93,13 +94,28 @@ In order to create Figures \ref{fig:fig2_sales} and \ref{fig:fig2_deaths}, we di
 \end{figure}
 Even after excluding the 2016 data, we see that the firearms deviation line plot differs from the one in the paper. Specifically, there is a noticeable peak in 2014 and the final data point, December 2015 is much higher in our plot. These values undermine the author's claim that the peak in firearm sales was unique to the Sandy-Hook area. We are still investigating the source of the discrepancy. 
 \subsection*{Figure 3: State-level trends in exposure}
+As a precursor to their state-level analysis, the authors demonstrated the heterogeneity in gun sale increases by state. To calculate these numbers, the authors first normalized gun purchases by state population. Then, for each state, the authors fit a fixed effects regression of gun sales on a dummy variable, which is one in the months following the shooting and zero otherwise. As before, the regression contained dummy variables to account for seasonality and annual trends. They then defined the increase in gun sales to be the coefficient on the Sandy-Hook dummy variable. \\ \\
+To replicate, we simply ran the provided Stata code, which outputted a slew of regression coefficients. We then manually transferred these coefficients into a CSV data file, which maps states to gun sale increases. We then used ggplot's \texttt{geom\_map} geometry to visualize. The side-by-side comparison is shown in Figures \ref{fig:fig3_original} and \ref{fig:fig3_generated}. Though a few tweaks still need to be made, overall, these two maps match precisely. 
+\begin{figure}[hbt]
+	\centering
+	\includegraphics[width=.75\linewidth]{figures/fig3_original.jpg}
+	\caption{Original map}
+	\label{fig:fig3_original}
+\end{figure}
+\begin{figure}[hbt]
+	\centering
+	\includegraphics[width=.9\linewidth]{figures/fig3_generated.png}
+	\caption{Generated Map}
+	\label{fig:fig3_generated}
+\end{figure}
 \subsection*{Causal inference analysis}
 \section*{Extension Proposals} 
 \subsection*{Proposal 1}
 \subsection*{Proposal 2}
 \subsection*{Proposal 3}
-
 \bibliographystyle{IEEEtranS}
 \bibliography{references}
 \section*{Appendix}
+\href{https://github.com/dliu18/firearms-replication}{Project Github}
+\href{https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/EVLKBN}{Dataverse}
 \end{document}

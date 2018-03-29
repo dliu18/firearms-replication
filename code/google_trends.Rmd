@@ -61,7 +61,10 @@ nat_gun_sales <- filter(nat_gun_sales, year <= 2015)
 ```{r}
 ggplot() +
   geom_line(data = nat_gun_sales, aes(x = year_month, y = resid)) + 
-  ylim(c(-1200000, 1200000))
+  ylim(c(-1200000, 1200000)) +
+  ylab("Deviation") + 
+  ggtitle("Deviations from Expected Monthly Firearm Sales: Pre-revision") 
+ggsave("../writing/figures/fig2_pre_revision.PNG")
 ```
 
 Remove 2016 data
@@ -77,6 +80,7 @@ ggplot() +
   ylim(c(-1200000, 1200000)) +
   ylab("Deviation") + 
   ggtitle("Deviations from Expected Monthly Firearm Sales") 
+ggsave("../writing/figures/fig2_sales.PNG")
 ```
 
 Load the death data
@@ -90,5 +94,6 @@ ggplot(data = nat_death) +
   ylim(c(-0.024, 0.024)) +
   ylab("Deviation") + 
   ggtitle("Deviations from Expected Accidental Firearm Death Rates for Children") 
+ggsave("../writing/figures/fig2_deaths.PNG")
 # set bar width to 5 months 
 ```
