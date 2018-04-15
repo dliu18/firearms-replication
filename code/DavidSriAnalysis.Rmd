@@ -19,8 +19,11 @@ library(gridExtra)
 library(xtable)
 library(pscl)
 library(mvtnorm)
+library(maps)
 
 # SET WORKING DIRECTORY
+# CHANGE THIS TO YOUR WORKING DIRECTORY
+setwd('C:/Users/David/Google Drive/Senior Spring/SOC/firearms-replication/code')
 ```
 
 ## Figure 1
@@ -96,4 +99,16 @@ ggplot(data = nat_death) +
   ggtitle("Deviations from Expected Accidental Firearm Death Rates for Children") 
 ggsave("../writing/figures/fig2_deaths.PNG")
 # set bar width to 5 months 
+```
+
+## Figure 3
+
+Setup the dataframe for state level firearm sale increases:
+```{r}
+states_gun_increase <- read.csv("../output/figure data/fig3.csv")
+states_map <- map_data("state")
+ggplot(states_gun_increase, aes(map_id = state)) +
+    geom_map(aes(fill = -total_increase), map = states_map)+
+    expand_limits(x = states_map$long, y = states_map$lat)
+ggsave("../writing/figures/fig3_generated.png")
 ```

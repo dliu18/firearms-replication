@@ -96,42 +96,55 @@ Even after excluding the 2016 data, we see that the firearms deviation line plot
 \subsection*{Figure 3: State-level trends in exposure}
 As a precursor to their state-level analysis, the authors demonstrated the heterogeneity in gun sale increases by state. To calculate these numbers, the authors first normalized gun purchases by state population. Then, for each state, the authors fit a fixed effects regression of gun sales on a dummy variable, which is one in the months following the shooting and zero otherwise. As before, the regression contained dummy variables to account for seasonality and annual trends. They then defined the increase in gun sales to be the coefficient on the Sandy-Hook dummy variable. \\ \\
 To replicate, we simply ran the provided Stata code, which outputted a slew of regression coefficients. We then manually transferred these coefficients into a CSV data file, which maps states to gun sale increases. We then used ggplot's \texttt{geom\_map} geometry to visualize. The side-by-side comparison is shown in Figures \ref{fig:fig3_original} and \ref{fig:fig3_generated}. Though a few tweaks still need to be made, overall, these two maps match precisely. 
-\begin{figure}[hbt]
-	\centering
-	\includegraphics[width=.75\linewidth]{figures/fig3_original.jpg}
-	\caption{Original map}
-	\label{fig:fig3_original}
-\end{figure}
-\begin{figure}[hbt]
-	\centering
-	\includegraphics[width=.9\linewidth]{figures/fig3_generated.png}
-	\caption{Generated Map}
-	\label{fig:fig3_generated}
+\begin{figure}[htbb]
+	\begin{minipage}[b]{0.5\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{figures/fig3_original.jpg}
+		\caption{Original map}
+		\label{fig:fig3_original}
+	\end{minipage}
+	\hspace{0.2cm}
+	\begin{minipage}[b]{0.5\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{figures/fig3_generated.png}
+		\caption{Generated Map}
+		\label{fig:fig3_generated}
+	\end{minipage}
 \end{figure}
 \subsection*{Causal inference analysis}
 Interestingly, the paper's most significant findings were the most straight forward to replicate as many of the quantities were simply regression coefficients. To start, the original quantities are shown in Figure \ref{fig:table_original}. \\ \\
 \begin{figure}[hbt]
 	\centering
-	\includegraphics[width=.9\linewidth]{figures/table_original.png}
+	\includegraphics[width=.75\linewidth]{figures/table_original.png}
 	\caption{The original reported values in Table 1, which establishes a causal relationship between firearm exposure and firearm related accidental deaths.}
 	\label{fig:table_original}
 \end{figure}
-These first panel of the table provides descriptive statistics, such as total population and average number of accidental fire arm deaths. We ran the provided Stata code to yield the values shown in Figure \ref{fig:panel1}. The mean values of \texttt{pop byage} match the population parameters from the table. Then, if we multiply the average value of \texttt{num deaths} by five, to obtain the five-month mortality rate, we also get the average values reported in the paper. \\ \\
+These first panel of the table provides descriptive statistics, such as total population and average number of accidental fire arm deaths. We ran the provided Stata code to yield the values shown in Figure \ref{fig:panel1}. The mean values of \texttt{pop byage} match the population parameters from the table. Then, if we multiply the average value of \texttt{num deaths} by five, to obtain the five-month mortality rate, we also get the average values reported in the paper.
 \begin{figure}[hbt]
 	\centering
-	\includegraphics[width=.9\linewidth]{figures/panel1.png}
+	\includegraphics[width=.7\linewidth]{figures/panel1.png}
 	\caption{The summary statistics from Stata concur with those from the paper.}
 	\label{fig:panel1}
 \end{figure}
 To make causal conclusions, the authors first ran an OLS regression with a dummy variable for the Sandy Hook period representing a treatment effect. To assert that exposure produced more accidental deaths, the authors then performed an IV regression with 2 stage lease squares, where the Sandy Hook shooting was the instrument and the amount of exposure was the endogenous variable. \\ \\
-In all six of these regression (two methods each applied to three age groups), we must verify the coefficient on \texttt{sandyhook}. To be concise, we do not copy those regression outputs here, but they are contained in the replication\_science.log log file. The coefficients in the final six regressions do match those reported in the paper. 
+In all six of these regression (two methods each applied to three age groups), we must verify the coefficient on \texttt{sandyhook}. To be concise, we do not copy those regression outputs here, but they are contained in the replication\_science.log log file. The coefficients in the final six regressions do match those reported in the paper.
+\newpage 
 \section*{Extension Proposals} 
-\subsection*{Proposal 1}
-\subsection*{Proposal 2}
-\subsection*{Proposal 3}
+We propose three separate extension ideas. Feedback will be very helpful in deciding the most promising direction to pursue. 
+\subsection*{Proposal 1: Study additional mass shootings}
+The most straight forward extension is to test whether the author's findings hold for other national mass shootings. The given data spans 2008 - 2016 so we have ample data to test these hypotheses. Our results would discuss the generalizeability of the original paper's findings. For example, do all mass shootings increase exposure to firearms which then leads to more accidental deaths? Looking at the overall exposure trends, our initial hypothesis is that the Sandy Hook shooting produced a truly unprecedented increase in firearm purchases. If this is the case, we can dive further into characteristics that were distinct to the Sandy Hook shooting. These results could help us address the research question: which mass shootings mobilize the public to take action? 
+\subsection*{Proposal 2: Effect of gun exposure on other health outcomes}
+The original paper measured the effect of gun exposure on accidental deaths, which is an arguably niche outcome variable to study. Instead, as an extension, we propose studying the effect of gun exposure on more common health outcomes. One such outcome could be mental health consequences. For instance, does being exposed to more firearms affect overall mental wellbeing. The main challenge of this approach is obtaining the necessary mental health data. Second, it would be interesting to measure the effect of gun exposure on educational performance, especially as more people have advocated for giving teachers firearms to protect students. The main hurdles to this approach would be assessing the immediacy of the firearms-exposure effect (if any on education). \\ \\ 
+Nevertheless, these ideas are favorable because we already have the background checks data (firearm exposure), and we can still leverage the Sandy Hook shooting as an instrumental variable. 
+\subsection*{Proposal 3: factors effecting gun purchases}
+Our final proposal deviates further from the author's original objectives, but leverages their data cleaning efforts and potentially carries greater political weight. Instead of treating the number of firearm background checks as an independent variable, we are interested in using it as an outcomes variable. Presently, thanks to the original author's meticulous data cleaning, we have data on the number of background checks that occurred in each state in each month between 2008 - 2016. It would be interesting to measure the effect of various control laws on the actual number of firearms purchased. These laws could help us quantify the decrease in firearm background checks following gun control legislation. Alternatively, we could measure the potentially positive effect of media advertising (such as those from the NRA) on background checks. For this proposal, we would collect data from social media, such as Twitter, and measure the network effects driving firearm sales.  
 \bibliographystyle{IEEEtranS}
 \bibliography{references}
 \section*{Appendix}
-\href{https://github.com/dliu18/firearms-replication}{Project Github}\\
-\href{https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/EVLKBN}{Dataverse}
+\subsection*{\href{https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/EVLKBN}{Dataverse}} 
+The original Dataverse (hosted by Harvard) contains the raw background checks, population, and trends data. It also contains the two Stata files used for data cleaning and analysis. 
+\subsection*{\href{https://github.com/dliu18/firearms-replication}{Project Github}}
+We have posted all of the code and data used for replication in the private Github repository above. 
+\subsection*{Supplemental Materials}
+In the Google Drive folder, we have included a supplemental materials document. This file contains the Stata log-file from running the provided code as well as the R markdown document we wrote to generate the figures. 
 \end{document}
