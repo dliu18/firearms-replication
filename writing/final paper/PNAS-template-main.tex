@@ -1,0 +1,224 @@
+\documentclass[9pt,twocolumn,twoside,lineno]{pnas-new}
+% Use the lineno option to display guide line numbers if required.
+\usepackage{subcaption}
+\templatetype{pnasresearcharticle} % Choose template 
+% {pnasresearcharticle} = Template for a two-column research article
+% {pnasmathematics} %= Template for a one-column mathematics article
+% {pnasinvited} %= Template for a PNAS invited submission
+
+\title{The Exception, Not the Rule: Sandy Hook and Firearm Purchases}
+
+% Use letters for affiliations, numbers to show equal authorship (if applicable) and to indicate the corresponding author
+\author[a,1]{David Liu}
+\author[b,1]{Sri Nimmagadda} 
+
+\affil[a]{Princeton University, Department of Computer Science}
+\affil[b]{Princeton University, Woodrow Wilson School of Public and International Affairs}
+
+% Please give the surname of the lead author for the running footer
+\leadauthor{Liu} 
+
+% Please add here a significance statement to explain the relevance of your work
+\significancestatement{The relationship between Americans and firearms after mass shootings is still an unanswered problem. Our analysis suggests the relationship is correlated with the political context. We present the ironic finding that the Obama Administration's attempts to enact gun control legislation following the Sandy Hook Elementary School shooting were followed by unprecedented levels of gun sales. These results suggest it is dangerous to only propose but not pass gun control legislation, a lesson that should guide future debates.}
+
+% Please include corresponding author, author contribution and author declaration information
+\authorcontributions{Please provide details of author contributions here.}
+\authordeclaration{Please declare any conflict of interest here.}
+\equalauthors{\textsuperscript{1} David Liu and Sri Nimmagadda contributed equally to this work.}
+\correspondingauthor{\textsuperscript{2}To whom correspondence should be addressed. E-mail: dml3\@princeton.edu}
+
+% Keywords are not mandatory, but authors are strongly encouraged to provide them. If provided, please include two to five keywords, separated by the pipe symbol, e.g:
+\keywords{Mass Shootings | Sandy Hook | Gun Sales | National Rifle Association} 
+
+\begin{abstract}
+As mass shootings continue to arise in the United States, it is important to understand the public's response to these shootings. While previous studies have focused on the large number of gun sales following the Sandy Hood and San Bernardino shootings, we take a more comprehensive analysis. Our findings show that prior to Sandy Hook, shootings did not foreshadow an increase in gun sales, even for deadly shootings like the Fort Hood shooting in 2009. Instead, Sandy Hook was a turning point. We follow with suggestive findings that the threat of gun control legislation instigated the spike in gun sales following Sandy Hook The same political climate enabled a rise in gun sales following the San Bernardino shooting at the end of the Obama presidency. On the other hand, though equally, if not more tragic, the recent Parkland shooting did not precede a peak in gun sales with the Trump administration stifling the possibility of gun control. Our findings suggest that the mere attempt to pass gun control legislation, irrespective of its success, may cause a short-term increase in gun sales. 
+\end{abstract}
+
+\dates{This manuscript was compiled on \today}
+\doi{\url{www.pnas.org/cgi/doi/10.1073/pnas.XXXXXXXXXX}}
+
+\begin{document}
+
+\maketitle
+\thispagestyle{firststyle}
+\ifthenelse{\boolean{shortarticle}}{\ifthenelse{\boolean{singlecolumn}}{\abscontentformatted}{\abscontent}}{}
+
+% If your first paragraph (i.e. with the \dropcap) contains a list environment (quote, quotation, theorem, definition, enumerate, itemize...), the line after the list may have some extra indentation. If this is the case, add \parshape=0 to the end of the list environment.
+\dropcap{I}t is an often-stated political trope that mass shootings, perhaps counter-intuitively, increase gun sales as opposed to diminish them due to fear from gun-owners regarding the passage of gun-control measures \cite{pinsker_why_2017}. However, this argument has faced a lot of pushback and skepticism in the face of varying data, throwing this assertion under question. The political aftermath of the Sandy Hook shooting serves as a valuable case study in this regard. On December 12th, 2012, a shooter entered the Sandy Hook Elementary School campus and opened fire, killing 26 – most of whom were children at the school. Previous research has demonstrated that Obama’s call to action after this event and specific proposals to restrict access to guns is positively associated with a large increase in gun exposure, which in turn is associated with an increase in accidental deaths \cite{levine_firearms_2017}. The implication of this study is two-fold: For one, it confirms the relationship between increases in gun exposure and the accidental firings of firearms. But, more importantly, this study corroborates the notion that the political implications of mass shootings have identifiable effects on the sale of firearms.
+
+Levine and McKnight's 2017 study 'Firearms and accidental deaths: Evidence from the Sandy Hook school shooting" aligns state-level background check data solely against the Sandy Hook school shooting, with little to no evidence regarding any other shooting that occurred during the same period. This method assumes that the findings in the case of the Sandy Hook shooting are generalizable to all contemporary mass shootings that have occurred in the United States. Upon further inspection, it's possible that this is not the case - different mass shootings can have occurred in different time periods and political contexts, thereby affecting their political ramifications on the likelihood of gun legislation and firearm sales. Identifying differences and similarities in the effects of mass shootings on firearm sales can be valuable towards understanding the political and psychological drivers of firearm sales in the United States.
+
+Consider, for example, the San Bernardino shooting and the Parkland shooting at Marjory Stoneman High School. The Parkland shooting's death count actually exceeded that of the San Benardino shooting's death count; however, background checks for firearm sales declined after the Parkland shooting and increased after the San Benardino shooting. Conventional explanations for why certain tragedies gain political traction as opposed to others fails to account for this difference, as one may expect the firearm sales after the Parkland shooting to exceed sales after the San Benardino shooting due to the location of the attack in a school lending emotional credence to the gun control movement. Yet this isn't the case, forcing us to question why some shootings have positive associations with firearm sales whereas others have negative associations. 
+
+As such, this study is primarily concerned with identifying the association between mass shootings and gun exposure throughout the United States by looking at the largest mass shootings by casualty count over the past fifteen years to identify either similarities or differences in resultant changes in firearm sales post-shooting. In order to do so, we employ similar methods to Levine and McKnight in that we visualize background check data with respect to the various large mass shootings that have occurred in the United States over the past fifteen years. We extend this study by placing this time-series background check data - used as a variable to measure gun exposure - at the state and national level in the context of the states and geographic regions within which they occur. 
+
+By conducting this exercise, we identify differences in firearm sales effects at the local and national level between shootings. As a result, we find that Sandy Hook and the San Bernardino shootings were actually the exceptions - not the rule - in their positive associations with firearm sales at both the local and national levels whereas other shootings - including the Geneva County shooting and the Fort Hood shooting - have actually been followed by periods of depressed firearm sales. In our discussion, we consider the political ramifications of this finding and suggest methods and future studies that can better identify the causal mechanisms through which mass shootings affect gun sales. 
+%------------------------------------------------
+\section*{Materials and Methods}
+To compare the number of gun sales after multiple mass shootings, we collected background check data, as reported by the FBI, and then normalized with the National Cancer Institute's population data. To complete the data cleaning, we detrended the normalized data with month and year fixed effects. Finally, to supplement our later analysis, we collected Google Trends data to measure the public's interest and awareness of gun control legislation. 
+\subsection*{Origin of Background Check Data}
+
+We collected state-level monthly background check counts from the FBI’s National Instant Background Check System (NICS) \footnote{https://www.fbi.gov/file-repository/nics\_firearm\_checks\_-\_month\_year\_by\_state.pdf/view}. The data spanned all fifty states and every month between 2007 - 2016, inclusive. A background check is completed every time an individual attempts to purchase a firearm from a Federal Firearm Licensee  (FFL). Because a check is performed prior to every purchase, the quantity of NICS background checks serves as a proxy for the number of firearms sold \cite{pinsker_why_2017}. 
+	Furthermore, the NICS data is well suited for comparing background check counts between states because all states must comply with the system under the 1993 Brady Act, a piece of federal legislation. In this regard, even though gun control legislation varies state by state, federal law standardizes the record of background checks, creating a single system by which states report the number of checks. 
+	To prepare for intrastate comparisons, we normalized the background checks by population. These annual population data were reported by the National Cancer Institute’s Surveillance, Epidemiology, and End Result Program (SEER). The raw population data  from NCI breaks the population down by race and county, so to state-level analysis, we grouped the data by state. These aggregated state population counts matched previous aggregations of the NCI data \cite{levine_firearms_2017}. With the aggregated data, we were able to calculate the number of background checks that occured in a given month per 100,000 individuals. Of note, because the most up-to-date SEER population data covers only up to 2016, we were not able to normalize more recent (2017 - 18) NICS data, so our analysis spans the years of 2007 - 2016. 
+    A brief analysis of the normalized background check data shows that the number of background checks as well as the variance from month to month varies widely among states. Figure \ref{fig:boxplot} shows boxplots of population-normalized background checks counts in the months between 2007 and 2016. On one hand, we have states like New Jersey which only average 70 background checks, with little variation between months. On the other hand, we have states like Alabama, which averages over 700 normalized background checks per month. At the same time, at its peak, the number of background checks in Alabama reaches has high as 2500. The takeaway is that some states experiences higher variation in background check counts. 
+\begin{figure}%[tbhp]
+  \centering
+  \includegraphics[width=\linewidth]{figures/boxplot}
+  \caption{Of the states we analyzed, the average number of monthly population-normalized background checks counts ranged from as high as 775 in Alabama to as low as 70 in New Jersey.}
+  \label{fig:boxplot}
+\end{figure}
+	It is important to note that while the NICS data can be used as a proxy for firearms sales, they are not precise estimates. In fact, background checks are not required for intrastate transfers between private parties. Furthermore, firearms are purchased through unlicensed dealers, who to not earn a living from selling firearms. Many of these unlicensed purchases are made at local gun shows and do not lead to background checks. A recent 2017 survey found that at least 22\% of firearms are purchased through unlicensed sellers \cite{miller_firearm_2017}. So, the number of background checks reported by NICS is a lower bound on the actual number of guns sold.
+    
+\subsection*{Detrending Firearm Seasonal Trends}
+
+It is known that firearms purchases vary by season and year. Each year, more firearms are sold in the winter than the summer. At the same time, firearms sales have been steadily increasing over the past decade. In order to analyze variation in firearms sales and compare sales at multiple points in time, it is necessary to detrend the data. 
+	To detrend the data, we applied month and year fixed effects. The two sets of fixed effects capture our prior knowledge of seasonal patterns in firearms sales. Because these seasonal trends may vary from state to state, we composed a fixed effects model for each state. For a given month, year, and state, we decompose the number of background checks according to Equation \ref{eqn:fixedeffects}.
+\begin{figure}
+\begin{align}
+        S_{my} &= \delta_{0} + \xi_m + \xi_y + \upsilon_{my} \numberthis \label{eqn:fixedeffects} 
+\end{align}    
+\end{figure}
+In Equation \ref{eqn:fixedeffects}, for a given state, $S_{my}$ is the number of normalized background checks in month $m$ and year $y$ while $\xi_m$ and $\xi_y$ are our month and year fixed effects, respectively. The residual from the equation, $\upsilon_{my}$ is our detrended, normalized measure of the background check count. This value captures the amount of deviation from the seasonal trend and can be interpreted as the number of background checks relative to the expected quantity based on temporal trends. When the residuals are positive, as in many of our subsequent examples, the quantity expresses the number of \textit{surplus} background checks in a given month. 
+
+\subsection*{Coefficient Analysis}
+
+To confirm that our fixed effects model performed as expected based on prior firearms domain knowledge, we visualized the coefficients from the model, as shown in Figure \ref{fig:seasonal}. While we composed a fixed effects model for each state to detrend the data, we also composed a national fixed effects model using the entire data set to analyze overall seasonal and yearly trends. 
+\begin{figure}%[tbhp]
+  \centering
+  \includegraphics[width=\linewidth]{figures/seasonal}
+  \caption{As expected, our fixed effects model of background check counts shows that more checks are performed in the winter than in the summer. The baseline, omitted month is January.}
+  \label{fig:seasonal}
+\end{figure}
+	In the seasonal plot, the baseline value is the month and January, and in the yearly plot, the baseline year is 2007. From the monthly plot, we can see that firearms sales do peak in the winter (December) and trough in the summer (June and July). Between the peak and the trough there is a difference of 300 background checks per 100,000 individuals.
+\begin{figure}%[tbhp]
+  \centering
+  \includegraphics[width=\linewidth]{figures/yearly}
+  \caption{Since 2007, background checks have been increasing nationally, especially between 2012 and 2013.}
+  \label{fig:yearly}
+\end{figure}  
+    And then, from the yearly plot, shown in Figure \ref{fig:yearly} we can see that firearm sales have been increasing since 2007, especially in 2012 and 2013. The order of magnitude in the yearly coefficients is similar to the monthly ones, on the order of a few hundred background checks per 100,000 individuals. To put these coefficients in perspective, in the sample of fourteen states included in our analysis, the average number of monthly detrended, normalized background checks is 431.4, so the seasonal trends account for a significant amount of variation in background checks and it was necessary to detrend for comparison across time and states. 
+    
+\subsection*{Comparable Deadly Shootings}
+
+	To study the response in firearm sales to mass shootings beyond Sandy Hook and San Bernardino, we compiled a list of the remaining deadliest shootings in the 2007 - 2016 period. These shootings include the Orlando nightclub, Virginia Tech, Binghamton, and Fort Hood, and Geneva County Massacres. These shootings killed 50, 33, 14, 14, and 11 people respectively \footnote{A list of U.S. mass shootings is available at: https://www.washingtonpost.com/graphics/2018/national/mass-shootings-in-america}. Because all of these shootings ranked in the top 20 deadliest shootings in US history, we were able to control for the role of death toll in the subsequent effect on background checks. 
+	Of note, the Aurora and Washington Navy Yard shootings were not included, though they were deadly enough, because of the proximity to the Sandy Hook shootings. 
+    
+\subsection*{Gun Control Analysis}
+
+For our analysis, we needed a measure of the public’s belief in the feasibility of gun control. This is independent from the public’s opinion on gun control itself; instead, we were curious in the public’s views on the likelihood of gun-control legislation passing. The feasibility of gun control has been the topic of Pew surveys in the past \footnote{http://www.people-press.org/question-search/?qid=1839871\&pid=51\&ccid=51\#top}. However, these surveys were far and few between for our purposes. To analyze background checks and gun control prospects simultaneously, we sought monthly estimates of gun control likelihoods. 
+	Turning to a big-data source, we utilized Google Search Trends. In the past, Google Trends search data has already been used for measuring socially-charged political belief, such as the amount of racial bias in the country \cite{stephens-davidowitz_cost_2013}. We collected data on searches for “gun control bill” in the United States from 2007 - 2018, where the values are scaled relative to the maximum value. As used in previous works, the Google Search trends can be interpreted as the public’s interest in a particular topic at given moment in time. Conveniently, the trends data are also stored in monthly intervals. 
+%------------------------------------------------
+
+\section*{Results}
+
+\subsection*{Shootings During Obama's First Term Did Not Precede Increases in Background Checks}
+
+Figure \ref{fig:fort-hood} shows detrended background check quantities following the 2009 shooting in Fort Hood Texas, three years before Sandy Hook. In the graph, only the states in the proximity of the shooting in question are shown; namely Texas and Oklahoma. These states were chosen with the hypothesis that a change in background checks would be most likely near the site the shooting itself. For example, it is plausible that individuals purchase guns following a mass shooting for the purpose of self-protection. It is then reasonable to hypothesize that those living near the scene of a shooting would be moved to purchase a firearm. 
+\begin{figure}
+  \centering
+  \includegraphics[width=\linewidth]{figures/fort-hood}
+  \caption{In contrast to Sandy Hook and San Bernardino, detrended background checks did not increase following the Fort Hood shooting, even in the local proximity of the shooting.}
+  \label{fig:fort-hood}
+\end{figure}
+The important takeaway from Figure \ref{fig:fort-hood} is that even in the local states around the Fort Hood shooting, background checks did not subsequently increase. If any thing, background checks appear to dip in Texas and Oklahoma in late 2009, but this is likely an artifact of the Sandy Hook and San Bernardino shootings on the fixed effects; because both of the later shootings took place in December, the December coefficient in the fixed effects model is likely inflated. For comparison, the dip in background checks following the Fort Hood shootings is similar in magnitude to the dip at the end of 2007, suggesting background checks varied similar to years past despite the mass shooting. 
+\begin{figure*}%[tbhp]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{figures/binghamton}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{figures/geneva-county}
+\end{subfigure}
+\caption{The stagnation of background checks following the 2009 Binghamton and Geneva County shootings further supports the observation that the precipitous peak in sales following Sandy Hook was unprecedented.}
+\label{fig:2009}
+\end{figure*}
+In Figure \ref{fig:2009}, there are two plots similar to the Fort Hood one visualizing background checks after two other 2009 mass shootings. These shootings are the Geneva County Massacre in Alabama and the Binghamton shootings in New York. These two plots support the earlier observation that prior to Sandy Hook, background checks, and gun sales by proxy, did not increase following mass shootings, even in the states where the shooting occurred. The same analysis was applied to the Virginia Tech shooting of 2007 and the same pattern of stagnation was found \footnote{For space, the Virginia Tech graph is included in the Supplemental Materials.}
+\subsection*{Sandy Hook Increased Background Checks Nationally}
+
+In contrast, background checks increased precipitously in all of the states shown in Figures \ref{fig:fort-hood} and \ref{fig:2009} following the Sandy Hook and San Bernardino shootings. In New York, the deviation in background checks was five times larger than any previous deviation, and in Oklahoma, the peak following Sandy Hook was two times higher than any previous peak. The key takeaway is that even in states far and distant from the site of the original shootings, Connecticut and California, background checks increased following the Sandy Hook and San Bernardino shootings. 
+
+It is also helpful to note that the response to the shootings occurred immediately and lasted for a short duration. The Sandy Hook shooting took place on December 14, 2012 and by January 2013, we already see a peak in background checks. Similarly, the San Bernardino attack took place on December 2, 2015 and background checks spike in that same month. In fact, for both of the shootings, background checks had fallen back to expected levels in just two months after the events. So, the response in gun sales to the Sandy Hook and San Bernardino shootings was quick, widespread, and pronounced but also short lasted. 
+\subsection*{Attempts to Institute Gun Control Correlated with Spikes in Background Checks}
+
+Because the response to the Sandy Hook shooting was unprecedented, it is natural to ask what factors led to the pronounced spike in background checks. The fact that background checks did not increase after the Virginia Tech shooting rules out the possibility that death tolls explain the spike in gun sales after Sandy Hook, as the 2007 shooting was deadlier than both the Sandy Hook and San Bernardino shootings. One possible hypothesis is that the aftermath of the Sandy Hook shooting also coincided with the first serious attempt to pass gun control legislation under the Obama administration. Previously, especially in the earlier half of Obama’s first term, the possibility of gun control was not serious even after the series of shootings in 2009 \cite{rucker_gun_2012}. Following, Sandy Hook, however, the political climate was different. Obama had already been re-elected, clearing the path for a renewed effort to pass gun control. In fact, just five days after the Sandy Hook shooting, Obama broke ground on the path towards gun control by calling Congress to ban assault rifles and initiating a working group to make recommendations for gun control \cite{rucker_gun_2012}. 
+\begin{figure}
+  \centering
+  \includegraphics[width=\linewidth]{figures/google-trends-gun-control}
+  \caption{Searches for "Gun Control Bill", a proxy for the public's interest and awareness, were also unprecedented following Sandy Hook because of the Obama administration's newfound focus on gun control.}
+  \label{fig:gtrends}
+\end{figure}
+	Our own data from Google Trends suggests that Obama’s renewed attempts to pass gun control were noticed by the general public. Figure \ref{fig:gtrends} shows that searches for “Gun Control Bill” skyrocketed after the Sandy Hook shooting. In fact, Google Searches for gun control in the month following Sandy Hook were eight times larger than any month in the previous five years. These results suggest that public interest and awareness of gun control were also unprecedented following Sandy Hook. 
+    
+	The correlation between a spike in gun sales and pushes for control persists for the San Bernardino attacks, which took place the end of the Obama’s second term. In the Google Trends, we can see a second pronounced wave of interest in gun control. The spike was less than half the spike in searches following Sandy Hook but still the second highest spike in in the nine year period between 2007 - 2015. So in both the cases of Sandy Hook and San Bernardino, we observe unprecedented spikes in background checks but also public awareness of gun control. 
+
+\subsection*{Spikes in Background Checks After Mass Shootings Were Muted During a Trump Presidency}
+
+To put the hypothesis that the likelihood of gun control and background checks are correlated, we can analyze the much more recent shooting at Marjory Stoneman Douglas high school in Parkland, Florida. Very similar to Sandy Hook, this shooting took the lives of young children while also capturing the nation’s attention. However, unlike Sandy Hook and San Bernardino, the Parkland shooting took place under the Trump presidency and a Republican controlled congress, with few prospects for gun control legislation. 
+\begin{table}[!htbp] \centering 
+	\caption{Linear model of Florida's Population 2007 - 2016} 
+	\label{table:stargazer} 
+	\begin{tabular}{@{\extracolsep{5pt}}lc} 
+		\\[-1.8ex]\hline 
+		\hline \\[-1.8ex] 
+		& \multicolumn{1}{c}{\textit{Dependent variable:}} \\ 
+		\cline{2-2} 
+		\\[-1.8ex] & pop \\ 
+		\hline \\[-1.8ex] 
+		year & 249,418.100$^{***}$ \\ 
+		& (12,878.980) \\ 
+		& \\ 
+		Constant & $-$482,380,604.000$^{***}$ \\ 
+		& (25,906,085.000) \\ 
+		& \\ 
+		\hline \\[-1.8ex] 
+		Observations & 10 \\ 
+		R$^{2}$ & 0.979 \\ 
+		Adjusted R$^{2}$ & 0.977 \\ 
+		Residual Std. Error & 116,979.100 (df = 8) \\ 
+		F Statistic & 375.054$^{***}$ (df = 1; 8) \\ 
+		\hline 
+		\hline \\[-1.8ex] 
+		\textit{Note:}  & \multicolumn{1}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+	\end{tabular} 
+\end{table} 
+\begin{figure}
+  \centering
+  \includegraphics[width=\linewidth]{figures/florida-pop}
+  \caption{Because Florida's population increased linearly for a decade (250,000 per year), we extrapolated the state's population for 2017 and 2018 even though the SEER population data has not yet been released.}
+  \label{fig:florida-pop}
+\end{figure}
+	In order to apply our methodology to the Parkland shooting, we needed to estimate Florida’s population in 2017 and 2018 because the latest SEER population data extends only up until 2016. Fortunately, between 2007 and 2016, Florida’s population followed an extremely linear trajectory. In fact, a linear regression on Florida’s population over the decade has an R-squared of 0.979, with the population rising by a quarter million each year, as shown in Table \ref{table:stargazer} and Figure \ref{fig:florida-pop}. With this linear model, we made predictions of Florida’s population in 2017 and 2018. Fortunately, to complement the extrapolated population data, we did have access to up-to-date background checks from the NICS. 
+	After detrending the background check levels, we produced the graph shown in Figure \ref{fig:florida}. The graph shows background check counts in Florida between 2007 and 2018, which spans the Sandy Hook, San Bernardino, Orlando Night Club, and Parkland shootings. The figure shows that after Sandy Hook and San Bernardino, monthly detrended, normalized background check levels were approximately 200 counts higher than expected, in a state that averages 350 background checks per 100,000 individuals in a month. In contrast, background checks following the Parkland shooting were only 100 counts higher than anticipated and even smaller after the Orlando shooting, peaks half in magnitude compared to the shootings that took place during Obama’s second term. Our analysis of the previous shootings demonstrated that any peak in background checks following a mass shooting occurred quickly, within a month of the date of the shooting. The Parkland data shows a peak in background checks for the month of March but by April, background checks had already fallen to expected levels. So, we do not expect any further spike in background checks following the Parkland shooting. 
+\begin{figure}
+  \centering
+  \includegraphics[width=\linewidth]{figures/florida}
+  \caption{In contrast to the Sandy Hook and San Bernardino shootings, background checks only rose slightly in Florida after the Orlando night club and Parkland shootings, which took place at the end of the Obama administration and into the Trump one.}
+  \label{fig:florida}
+\end{figure}
+The diminished peak in background checks following the Parkland shootings relative to the Sandy Hook and San Bernardino shootings supports our hypothesis that the threat of gun control explains the unprecedented backlash during the Obama administration. Under Trump, the possibility of gun control has decreased, even after a mass shooting. Our Google Trends results show that searches for a gun control bill following Parkland were a quarter of the level they reached after Sandy Hook. Taken together these observations undermine the hypothesis that the traumatic nature of the Sandy Hook and San Bernardino caused an increase in background checks for the Parkland shooting also captured national attention. Instead,  the decreased possibility for gun control under president Trump has diminished the imminent threat of legislation to gun owners after mass shootings. These results support a correlation between the likelihood of gun control legislation and a spike in background checks. 
+
+%------------------------------------------------
+
+\section*{Discussion}
+
+As we've found, there appears to be a disparity in the effects of separate shootings on firearm sales at both the local and national levels, proving that the Sandy Hook and San Benardino shootings were the exceptions - \textit{not the rule} - in their effects on gun exposure post-shooting. This finding appears to corrborate the notion that the occurrence of mass shootings in and of themselves is not enough to influence firearm sales in direction or another. In fact, the political context within which shootings occur matters. However, while this study confirms associations between mass shootings and firearm sales in a variety of different contexts, it fails to identify the causal mechanism through which mass shootings actually cause firearm sales to go either up or down. 
+
+So, it is worth reconsidering the theoretical mechanism through which mass shootings affect firearm sales. It's possible that the CNN Effect, the process through which domestic and foreign policy is influenced by the proclivity of sources of news media to portray the news, indirectly influences the number of firearm sales (and in turn, background checks). There exist two models of domestic politics that could account for this effect: Under the top-down model of domestic politics, the media may be influenced by the government by receiving cues from the administration - this is to say that if politicians in government are pursuing gun control, they may influence the media to report legislative pursuits of gun control more. Under the bottom-up model of domestic politics, the government may receive cues from the media that may reflect popular attitudes regarding gun control. For example, mass shootings may influence reporting by the media that is pro-gun control, which in turn could influence the government towards pursuing gun control legislation.
+
+In the context of this study, it is then worth exploring whether there is a relationship between media coverage of gun control measures explored or taken and increases in firearm sales. To be fair, such a study would be hard to conduct given the difficulty of recording mass media sources and presentation of positions given that people receive their news media through a variety of sources. However, it may be worth aggregating Facebook data of individuals who identify as gun owners and non-gun owners and studying the gun control-related news sources that come upon their news feed with respect to time after a mass shooting. While this data would be hard to retrieve and would require institutional support on the behalf of social networking sites, it may be a powerful means of detecting the associations between mass shootings and news coverage of gun control. It's possible that increases in news sources touting advancements in gun control may be associated with increases in background checks, which would corroborate the notion that the media is the causal mechanism through which mass shootings influence background checks. 
+
+In addition, it's possible that outreach conducted by the NRA is a key mechanism through which firearm sales increase. For example, if the NRA believes that the likelihood of gun control increases after mass shooting, it will increase its frequency of tweeting or posting social media messages. This is another study that would require institutional aid on behalf of social media websites. However, aligning the frequency of social media posts by the NRA with background check data would help us determine how the NRA responds to mass shootings. If the NRA increases its outreach and activism through social media after mass shootings, it's possible we can establish some causality there. In truth, it's entirely likely that a multitude of factors affect whether firearm sales increase. But creating theoretical justifications for causal mechanisms and then aligning the time series data can provide valuable insights into causality of firearm sales. 
+
+Now, such a discussion of future methods or studies would do well to consider the limitations of the data used in this study for such analyses. While this study uses background check data with respect to time, it fails to align the data with any proxy variables that could be considered the true causes of firearm sales increases. For example, it's possible that social media posts by the NRA increases greatly after Sandy Hook but didn't after the Fort Hood shooting, which could account for some of the variation between shooting and firearm sales outcomes. Therefore, we face serious limitations on the data required for these future studies unless we receive institutional aid. In addition, the data as it stands tell us little about how the different factors that may affect firearm sales after mass shootings compare to one another in terms of strength of influence. With the use of regression models, we may be able to account for a variety of numerical and categorical characteristics of shootings that may influence subsequent firearm sales, such as political party of the Executive Branch, political affiliation of Congress, shooting death count, or shooting setting. However, such a study would likely suffer from underreporting and methodological issues due to the immense amount of factors that could lead to increases in gun sales [hence, underfitting] or difficulty of aligning different shootings with different trends in firearm sales. Still, the studies suggested in this discussion would be valuable towards understanding the causal mechanisms between firearm sales and mass shootings better. In conclusion, we suggest that understanding the causal mechanism through which mass shootings influence gun sales is important as it may influence the political strategies employed by lawmakers who wish to enact gun control and suggest them to be more careful being proposing legislation immediately after mass shootings.
+
+\acknow{We would like to acknowledge the support and guidance provided by our instructors Matthew Salganik, Simone Zhang, and Ian Lundberg.}
+
+\showacknow{} % Display the acknowledgments section*
+
+% Bibliography
+\bibliography{pnas-sample}
+
+\end{document}

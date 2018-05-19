@@ -12,44 +12,44 @@
 
 clear;
 infix month 65-66 year 102-105 ageunit 70 age 71-73 icd10r 154-156 
-	 using mort07.dat;
+	 using ../../data/raw/mort07.dat;
 
 keep if ageunit == 1;
 
-save temp1.dta, replace;
+save ../../data/analytic/temp1.dta, replace;
 
 clear;
 infix month 65-66 year 102-105 ageunit 70 age 71-73 icd10r 154-156 
-	 using mort08.dat;
+	 using ../../data/raw/mort08.dat;
 
 keep if ageunit == 1;
 
-append using temp1.dta;
-save temp1.dta, replace;
+append using ../../data/analytic/temp1.dta;
+save ../../data/analytic/temp1.dta, replace;
 
 clear;
 infix month 65-66 year 102-105 ageunit 70 age 71-73 icd10r 154-156 
-	 using mort09.dat;
+	 using ../../data/raw/mort09.dat;
 
 keep if ageunit == 1;
 
-append using temp1.dta;
-save temp1.dta, replace;
+append using ../../data/analytic/temp1.dta;
+save ../../data/analytic/temp1.dta, replace;
 
 
 forvalues num = 10/15{;
      clear;
 infix month 65-66 year 102-105 ageunit 70 age 71-73 icd10r 154-156 
-	 using mort`num'.dat;
+	 using ../../data/raw/mort`num'.dat;
 
 keep if ageunit == 1;
 
-append using temp1.dta;
-save temp1.dta, replace;
+append using ../../data/analytic/temp1.dta;
+save ../../data/analytic/temp1.dta, replace;
 };
 
 compress;
-save temp1.dta, replace;
+save ../../data/analytic/temp1.dta, replace;
 
 drop if age > 110;
 
@@ -65,15 +65,15 @@ drop age;
 drop ageunit icd10r;
 
 compress;
-save alldeathsmicro-public.dta, replace;
-erase temp1.dta;
+save ../../data/analytic/alldeathsmicro-public.dta, replace;
+erase ../../data/analytic/temp1.dta;
 
 *************************************************************************;
 * create a collapsed dataset of mortality rates by month, year, and age *;
 *************************************************************************;
 
 clear;
-use alldeathsmicro-public.dta;
+use ../../data/analytic/alldeathsmicro-public.dta;
 gen index = [_n];
 
 sort year month causedeath;
@@ -85,11 +85,11 @@ replace numdeaths = 0 if _fillin == 1;
 drop _fillin;
 
 sort year agecat;
-merge year agecat using population-age-public.dta;
+merge year agecat using ../../data/raw/population-age-public.dta;
 tab _merge;
 drop if _merge ~= 3;
 drop _merge;
 
 sort year month agecat;
-save deaths-age-public.dta, replace;
+save ../../data/analytic/deaths-age-public.dta, replace;
 

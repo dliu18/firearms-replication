@@ -2,7 +2,7 @@
 set more 1;
 set matsize 800;
 capture log close;
-log using replication_science.log, replace;
+log using ../../output/replication_science.log, replace;
 clear;
 
 **********************;
@@ -16,7 +16,7 @@ clear;
 
 *First, create sales figures *;
 ******************************;
-use bckcheck-state-public.dta;
+use ../../data/raw/bckcheck-state-public.dta;
 
 keep if year>=2008;
 
@@ -45,7 +45,7 @@ clear;
 
 * Next, create mortality bars *;
 *******************************;
-use deaths-age-public.dta;
+use ../../data/analytic/deaths-age-public.dta;
 keep if agecat=="0_14";
 
 keep if month==12 | month<=4;
@@ -74,10 +74,10 @@ clear;
 * Replicate Figure 3 *;
 **********************;
 
-use bckcheck-state-public.dta;
+use ../../data/raw/bckcheck-state-public.dta;
 
 sort year stfips;
-merge year stfips using population-state-public.dta;
+merge year stfips using ../../data/raw/population-state-public.dta;
 tab _merge;
 
 keep if year>=2008;
@@ -104,12 +104,12 @@ clear;
 ************************;
 * Replication Figure 4 *;
 ************************;
-
+/*
 use deaths-age-state-NOTPUBLIC.dta;
 sort stfips year month;
 
 sort stfips year month;
-merge m:1 stfips year month using bckcheck-state-public.dta;
+merge m:1 stfips year month using ../../data/raw/bckcheck-state-public.dta;
 tab _merge;
 drop if _merge ~= 3;
 drop _merge;
@@ -160,11 +160,11 @@ sort largeinc year;
 list year mortrate residbig largeinc if largeinc == 1, clean;
 list year mortrate residsml largeinc if largeinc == 0, clean;
 clear;
-
+*/
 *********************************************************;
 * Replication Table 1, Panel 1 (Descriptive Statistics) *;
 *********************************************************;
-use deaths-age-public.dta;
+use ../../data/analytic/deaths-age-public.dta;
 keep if year==2013;
 keep if causedeath=="acc_firearms";
 
@@ -178,7 +178,7 @@ clear;
 *Replicate Table 1, panel 2 *;
 *****************************;
 
-use deaths-age-public.dta;
+use ../../data/analytic/deaths-age-public.dta;
 
 keep if year>=2008;
 
@@ -204,7 +204,7 @@ clear;
 *Replicate Table 1, panel 3 *;
 *****************************;
 
-use deaths-age-public.dta;
+use ../../data/analytic/deaths-age-public.dta;
 
 keep if year>=2008;
 
@@ -212,7 +212,7 @@ keep if year>=2008;
 egen pop=sum(pop_byage), by(year month);
 
 sort year month;
-merge year month using bckcheck-public.dta;
+merge year month using ../../data/raw/bckcheck-public.dta;
 tab _merge;
 
 *Calculate background checks per 100 population (which is the same as 1000s of background checks per 100,000);
@@ -242,19 +242,19 @@ clear;
 *Replicate Table 1, Panel 4                                *;
 *The data for these regressions are not publicly available *;
 ************************************************************;
-
+/*
 use deaths-age-state-NOTPUBLIC.dta;
 
 keep if year>=2008;
 
 sort stfips year agecat;
-merge stfips year agecat using population-state-age-public.dta;
+merge stfips year agecat using ../../data/raw/population-state-age-public.dta;
 tab _merge;
 keep if _merge==3; 
 capture drop _merge;
 
 sort stfips year month;
-merge stfips year month using bckcheck-state-public.dta;
+merge stfips year month using ../../data/raw/bckcheck-state-public.dta;
 tab _merge;
 keep if _merge==3;
 
@@ -288,3 +288,4 @@ gen mortrate=(numdeaths/pop)*100000;
 
 xi: ivreg2 mortrate i.month i.stname*i.year i.stname*i.month (totalpc = sandyhook shook_obama) [weight=pop], cluster(stname);
 clear;
+*/
