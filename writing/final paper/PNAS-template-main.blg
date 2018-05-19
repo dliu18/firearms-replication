@@ -1,0 +1,46 @@
+This is BibTeX, Version 0.99d (TeX Live 2016/Debian)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: PNAS-template-main.aux
+The style file: pnas-new.bst
+Database file #1: pnas-sample.bib
+You've used 5 entries,
+            1837 wiz_defined-function locations,
+            502 strings with 4563 characters,
+and the built_in function-call counts, 893 in all, are:
+= -- 66
+> -- 44
+< -- 0
++ -- 14
+- -- 9
+* -- 65
+:= -- 148
+add.period$ -- 10
+call.type$ -- 5
+change.case$ -- 5
+chr.to.int$ -- 0
+cite$ -- 5
+duplicate$ -- 47
+empty$ -- 90
+format.name$ -- 9
+if$ -- 189
+int.to.chr$ -- 0
+int.to.str$ -- 5
+missing$ -- 5
+newline$ -- 23
+num.names$ -- 5
+pop$ -- 11
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 24
+stack$ -- 0
+substring$ -- 40
+swap$ -- 10
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 0
+while$ -- 8
+width$ -- 6
+write$ -- 49
